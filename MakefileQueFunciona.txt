@@ -1,0 +1,19 @@
+CXX = gcc
+# Update these paths as necessary to match your installation
+SDL_LIB = -LC:/libsdl/lib -lSDL2main -lSDL2
+SDL_INCLUDE = -IC:/libsdl/include
+# If your compiler is a bit older you may need to change -std=c++11 to -std=c++0x
+CXXFLAGS = -Wall -c -std=c99 $(SDL_INCLUDE) 
+LDFLAGS = -lmingw32 -mwindows -mconsole $(SDL_LIB) 
+EXE = game.exe
+
+all: $(EXE)
+
+$(EXE): main.o
+	$(CXX) $< $(LDFLAGS) -o $@
+
+main.o: main.c
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+clean:
+	del *.o && del $(EXE)
