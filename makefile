@@ -1,7 +1,7 @@
 build:
 	gcc -Wall \
 		-std=c99 \
-		main.c \
+		gameLoop.c \
 		-I"C:\libsdl\include" \
 		-L"C:\libsdl\lib" \
 		-lmingw32 \
